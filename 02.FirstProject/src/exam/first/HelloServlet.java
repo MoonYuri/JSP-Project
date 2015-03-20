@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HelloServlet
  */
-@WebServlet("/a.first") /*맵핑*/ 
+@WebServlet("/HelloServlet") /*URL 맵핑*/ 
 public class HelloServlet extends/*상속*/ HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,7 +31,14 @@ public class HelloServlet extends/*상속*/ HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 		
-		out.print("Hello");
+		String name = request.getParameter("name");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
+		out.print("Hello - GET");
+		out.print(name);
+		out.print(id);
+		out.print(pwd);
 	}
 	
 
@@ -40,6 +47,18 @@ public class HelloServlet extends/*상속*/ HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		PrintWriter out = response.getWriter();
+		
+		String name = request.getParameter("name");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
+		out.print("Hello - GET");
+		out.print(name);
+		out.print(id);
+		out.print(pwd);
+		
 	}
 
 }
