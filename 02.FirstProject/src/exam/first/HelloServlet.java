@@ -29,16 +29,21 @@ public class HelloServlet extends/*상속*/ HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");//<br>이랑 한글인식
 		PrintWriter out = response.getWriter();
 		
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		
-		out.print("Hello - GET");
-		out.print(name);
-		out.print(id);
-		out.print(pwd);
+		//out.print("<html>");
+		out.print("Hello - GET<br>");
+		out.print("이름 : " + name + "<br>");
+		out.print("아이디 : " + id + "<br>");
+		out.print("비밀번호 : " + pwd + "<br>");
+		//out.print("</html>");
 	}
 	
 
@@ -47,18 +52,20 @@ public class HelloServlet extends/*상속*/ HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		request.setCharacterEncoding("UTF-8");// 보내는 데이터의 한글인식
+		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		
-		out.print("Hello - GET");
-		out.print(name);
-		out.print(id);
-		out.print(pwd);
-		
+		//out.print("<html>");
+		out.print("Hello - GET<br>");
+		out.print("이름 : " + name + "<br>");
+		out.print("아이디 : " + id + "<br>");
+		out.print("비밀번호 : " + pwd + "<br>");
+		//out.print("</html>");
 	}
 
 }

@@ -24,5 +24,14 @@
 	<input type="submit" value="POST 방식으로 전송">
 </form>
 
+<hr>
+<h1>JSP</h1>
+<form method="get" action="test3.jsp">
+	이름 : <input type="text" name="name"><br>
+	아이디 : <input type="text" name="id"><br>
+	비밀번호 : <input type="password" name="pwd"><br>
+	<input type="submit" value="JSP 방식으로 전송">
+</form>
+
 </body>
 </html>
