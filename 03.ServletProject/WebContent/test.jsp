@@ -12,8 +12,8 @@
 <hr>
 
 <form action="TestServlet">
-	이름 : <input type="text" name="name"><br>
-	비밀번호 : <input type="text" name="pwd"><br>
+	<label for="name">이름 :</label> <input type="text" id="name" name="name"><br>
+	<label for="password">비밀번호 : </label><input type="text" id="password" name="pwd"><br>
 		<input type="radio" name="gender" value="남자"> 남자
 		<input type="radio" name="gender"value="여자"> 여자 <br>
     	<input type="submit" value="서버로 제출">
