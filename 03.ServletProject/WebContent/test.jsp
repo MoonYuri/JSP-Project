@@ -18,16 +18,20 @@
    			font-size:10px;
    			background-color:white;
    			}
-   		
-   	
    	</style> 
+   	
+   	<script>
+   		function gofunc(){
+   			alert("Hello JavaScript!");
+   		}
+   	</script>
    	
 </head>
 <body>
     <h1>request test</h1>
 <hr>
 
-<form action="TestServlettwo">
+<form action="TestServlettwo" onsubmit="return gofunc()">
 
 	<label for="name">이름 :</label> <input type="text" id="name" name="name"><br>
 	<label for="password">비밀번호 : </label><input type="text" id="password" name="pwd"><br>
