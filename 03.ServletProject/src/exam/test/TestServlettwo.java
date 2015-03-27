@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class TestServlet
+ * Servlet implementation class TestServlettwo
  */
-@WebServlet("/TestServlet")
-public class TestServlet extends HttpServlet {
+@WebServlet("/TestServlettwo")
+public class TestServlettwo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TestServlet() {
+    public TestServlettwo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,24 +40,29 @@ public class TestServlet extends HttpServlet {
 		String e = request.getParameter("myEmail");
 		
 		String[] hobby = request.getParameterValues("hobby");
+		String f = request.getParameter("subject");
+		String h = request.getParameter("text");
+		
 		PrintWriter out = response.getWriter();//클라이언트에게 내려보내는 값 선언
 		
 		//out.print("<html>");
 		out.print("Hello - GET<br>");
 		out.print("이름 : " + n + "<br>");
 		out.print("패스워드 : " + pwd + "<br>");
-		out.print(g);
-		out.print(c);
-		out.print("이메일 : " + e);
+		out.print(g + "<br>");
+		out.print(c + "<br>");
+		out.print("이메일 : " + e + "<br>");
 		
 		if(hobby == null)
 			out.print("선택하세요.");
 		else
-			out.pirnt(hobby.length + "개 선택!");
+			out.print(hobby.length + "개 선택!");
 			
 			for(int i=0; i<hobby.length; i++)
 				out.print(hobby[i] + "<br>");
-		
+			
+		out.print(f + "<br>");
+		out.print(h + "<br>");
 	}
 
 	/**
