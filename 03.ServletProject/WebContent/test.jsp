@@ -7,11 +7,16 @@
 <head>
    	<title>JSP/Servlet Example</title>
    	<style> 
+   		body{
+   		background-image:url("사진.jpg");
+   		background-repeat:no-repeat;
+   		background-attachment:fixed;
+   		}
    		input, select, textarea { 
    			border:green 1pt solid;
    			color:blue;
    			font-size:10px;
-   			background-color:yellow;
+   			background-color:white;
    			}
    		
    	
@@ -41,7 +46,7 @@
 			<option value="jsp">JSP</option>
 			<option value="html">HTML</option>
 		</select><br>
-		<textarea rows="20" cols="50" name="text"></textarea><br>	
+		<textarea rows="100" cols="50" name="text"></textarea><br>	
 		
     	<input type="submit" value="서버로 제출">
 	
