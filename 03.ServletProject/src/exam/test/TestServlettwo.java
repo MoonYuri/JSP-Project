@@ -55,16 +55,18 @@ public class TestServlettwo extends HttpServlet {
 		
 		if(hobby == null)
 			out.print("선택하세요.");
-		else
-			out.print(hobby.length + "개 선택!");
+		else{
+			out.print(hobby.length + "개 선택!" + "<br>");
 			
 			for(int i=0; i<hobby.length; i++)
 				out.print(hobby[i] + "<br>");
-			
+		}	
 		out.print(f + "<br>");
 		out.print(h + "<br>");
+		out.close();
 	}
 
+		
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
