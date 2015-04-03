@@ -26,15 +26,20 @@
 		out.println("성별 : ");
 		if(gender.equals("male")) {
 			out.println("<b>남자</b><br>");
-			response.sendRedirect("http://www.naver.com");
 		} else {
 			out.println("<b>여자</b><br>");
-			response.sendRedirect("http://www.daum.net");
 		}
 	
 		String seasonArr[] = request.getParameterValues("season");
 			out.println("당신이 좋아하는 계절은 ");
-			for(String season : seasonArr) {
+			if(seasonArr == null)
+				out.print("선택하세요");
+				else {
+					for(int i =0; i<seasonArr.length; i++){
+						out.print("<b>" + seasonArr[i] + "</b> 입니다.");
+					}
+				}
+			/* for(String season : seasonArr) {
 				int n = Integer.parseInt(season);
 				switch (n) {
 				case 1 : out.println("<b> 봄 </b> 입니다.");
@@ -46,7 +51,8 @@
 				case 4 : out.println("<b> 겨울 </b> 입니다.");
 						break;
 				}
-			}
+			} */
+				
 	%>
 	
 </body>
