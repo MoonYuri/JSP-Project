@@ -17,13 +17,13 @@
 	
 	//페이지 이동
 	//1. 리다이렉트 방식
-	//response.sendRedirect("secondPage.jsp");
+	response.sendRedirect("secondPage.jsp");
 	
 	//2.포워드 방식
-	RequestDispatcher requestDispatcher =
-		request.getRequestDispatcher("secondPage.jsp");
+	//RequestDispatcher requestDispatcher =
+	//	request.getRequestDispatcher("secondPage.jsp");
 	
-	requestDispatcher.forward(request, response);
+	//	requestDispatcher.forward(request, response);
 	
 %>
     
