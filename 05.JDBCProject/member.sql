@@ -17,6 +17,7 @@ create table member
 
 select * from MEMBER where id='test2'
 
+
 insert into member
 values('test2', '1234', '홍길동', 20, '1', '서울시', '2015-04-17')
 
