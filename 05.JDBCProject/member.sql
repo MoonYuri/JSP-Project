@@ -30,4 +30,4 @@ update member
 set addr ='경기도'
 where id ='test1'
 
-delete member where id='test1'
+delete member where id='dbfl'
