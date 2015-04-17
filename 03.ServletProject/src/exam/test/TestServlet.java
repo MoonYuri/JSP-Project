@@ -34,8 +34,8 @@ public class TestServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();//클라이언트에게 내려보내는 값 선언
 		
 		String n = request.getParameter("name");//test.jst에서이름을가져오겠다
-		String pwd = request.getParameter("pwd");											//input타입의 네임과같게!!!
-		String gender = request.getParameter("gender");										//내가 name="a"이면 이곳에 a
+		String pwd = request.getParameter("pwd");			//input타입의 네임과같게!!!
+		String gender = request.getParameter("gender");		//내가 name="a"이면 이곳에 a
 		//out.print("<html>");
 		out.print("Hello - GET<br>");
 		out.print("이름 : " + n + "<br>");
