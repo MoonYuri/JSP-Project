@@ -10,7 +10,7 @@ create table member
 	password 	varchar2(10),
 	name 		varchar2(20),
 	age 		number,
-	gerder 		char(1),        --고정길이 1이면 남자, 2이면 여자
+	gender 		char(1),        --고정길이 1이면 남자, 2이면 여자
 	addr 		varchar2(100),
 	regdate 	date  			default sysdate	   --date는 날짜형
 )
@@ -30,4 +30,4 @@ update member
 set addr ='경기도'
 where id ='test1'
 
-delete member where id='dbfl'
+delete member where id='dbfl1'
