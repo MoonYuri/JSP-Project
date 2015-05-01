@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%
+	//0. 요청 처리
 	String id = request.getParameter("id");
 	String pass = request.getParameter("pwd");
 	//out.print(id);
+	
 	// 1. JDBC 드라이버 로드
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	
@@ -13,8 +15,8 @@
 	
 	// 3. SQL문 실행
 	String sql = "insert into member values('" + id + "', '" + pass +"', '홍길동', 20, '1', '서울시', sysdate)";
-	Statement stmt = con.createStatement();
-	int result = stmt.executeUpdate(sql); //적용된 행의 갯수를 보기위해서
+	Statement stmt = con.createStatement(); //스테이트먼트객체 생성
+	int result = stmt.executeUpdate(sql); //적용된 행의 갯수를 보기위해서 executeUpdate spl에서 실행한것과 같은 동작
 	
 	out.print(result);
 	

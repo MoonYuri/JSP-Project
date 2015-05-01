@@ -15,8 +15,16 @@
 <hr>
 
 <form action="registerProc.jsp">
-	아이디 : <input type="text" name="id"><br>
-	비밀번호 : <input type="password" name="pwd">
+<table>
+	<tr>
+	<td><label for="id">아이디 : </label></td>
+	<td><input type="text" name="id" id="id"></td>
+	</tr>
+	<tr>
+	<td><label for="pwd">비밀번호 : </label></td>
+	<td><input type="password" name="pwd" id="pwd"></td>
+	</tr>
+</table>
 	<input type="submit" value="가입">
 </form>
 
