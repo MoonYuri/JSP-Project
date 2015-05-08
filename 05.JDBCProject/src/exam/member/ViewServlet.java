@@ -15,16 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ListServlet
+ * Servlet implementation class ViewServlet
  */
-@WebServlet("/list")
-public class ListServlet extends HttpServlet {
+@WebServlet("/view")
+public class ViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListServlet() {
+    public ViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,6 +34,17 @@ public class ListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html; charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		out.print("<h1>회원 상세 페이지</h1><hr>");
+		
+		String id = request.getParameter("id");
+		
+		//out.print(id);
+		
 		// 1. JDBC 드라이버 로드
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -51,50 +62,57 @@ public class ListServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		
 		// 3. SQL문 실행
 		PreparedStatement pstmt =null;
-		//request.setCharacterEncoding("UTF-8");
-		
-		String sql ="select * from member";
-		
-		response.setContentType("text/html;  charset=UTF-8");
-		
-		PrintWriter out = response.getWriter();
+		String sql ="select * from member where id=?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery(); // 커서가 데이터의 0번째 행을 가리킨다.
 			
-			out.print("<h1>회원 리스트</h1><hr>");
+			pstmt.setString(1, id); //물음표와 바인딩
 			
-			out.print("<table border =1>");
-			out.print("<tr>");
-			out.print("<th>아이디</th><th>비밀번호</th><th>이름</th><th>나이</th><th>성별</th><th>주소</th>");
-			out.print("</tr>");
+			ResultSet rs = pstmt.executeQuery();
 			
-			while(rs.next()) { // 데이터 0번째 행에서 1번째 행으로 커서 이동
+			if(rs.next()){
+				out.print("<table border =1>");
 				
 				out.print("<tr>");
-				out.print("<td><a href='view?id=" + rs.getString("id") + "'>" + rs.getString("id") + "</a></td>");
-				out.print("<td>" + rs.getString("password") + "</td>");
+				out.print("<td>아이디</td>");
+				out.print("<td>" + rs.getString("id") + "</td>");
+				out.print("</tr>");
+				
+				out.print("<tr>");
+				out.print("<td>이름</td>");
 				out.print("<td>" + rs.getString("name") + "</td>");
+				out.print("</tr>");
+				
+				out.print("<tr>");
+				out.print("<td>나이</td>");
 				out.print("<td>" + rs.getString("age") + "</td>");
+				out.print("</tr>");
+				
+				out.print("<tr>");
+				out.print("<td>성별</td>");
 				out.print("<td>" + rs.getString("gender") + "</td>");
+				out.print("</tr>");
+				
+				out.print("<tr>");
+				out.print("<td>주소</td>");
 				out.print("<td>" + rs.getString("addr") + "</td>");
 				out.print("</tr>");
+				
+				out.print("</table>");
+				
+				out.print("<a href='delete.jsp?id=" + rs.getString("id") +"'>삭제</a>");
+				
 			}
-			out.print("</table>");
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-			
-		
-		// 4. 데이터베이스와 연결 끊음
-		//stmt.close();
-		//pstmt.close();
+	
 		
 	}
 
